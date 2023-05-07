@@ -2,26 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "JosefinSans";
+  font-style: normal;
+  src: url('/static/fonts/JosefinSans.ttf');
+  src: url('/static/fonts/JosefinSans.ttf') format('ttf'), url('/static/fonts/JosefinSans.ttf') format('TrueType');
+  /* src: url('GraublauWeb.eot?') format('eot'), url('GraublauWeb.woff') format('woff'), url('GraublauWeb.ttf') format('truetype'); */
+  font-weight: normal;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); */
+  background: linear-gradient(90deg, #000851 0%, #182848 100%);
+
+  font-family: 'JosefinSans';
+}
+
+
+.left_circle {
+  /* top: -30px; */
+  left: -30px;
+  width: 170px;
+  height: 170px;
+  border-radius: 100px;
+  background: linear-gradient(to left top, #1CB5E0, #50e3c2);
+  position: absolute;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.hover_circle:hover .left_circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+
+.right_circle {
+  position: absolute;
+  top: -60px;
+  right: -30px;
+  width: 180px;
+  height: 180px;
+  border-radius: 90px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(49, 207, 171, 0.5)), to(#50e3c2));
+  background: linear-gradient(to right, rgba(49, 207, 171, 0.5), #50e3c2);
+  -webkit-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+  -webkit-transition-delay: 50ms;
+  transition-delay: 50ms;
+  z-index: -1;
+}
+
+.hover_circle:hover .right_circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+@media (max-width: 600px) {
+
+  .left_circle,
+  .right_circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hover_circle:hover .left_circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+  }
+
+  .hover_circle:hover .right_circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+  }
 }
